@@ -1,103 +1,58 @@
 <!DOCTYPE html>
-<!-- JV Source Codes | JVCodes.Com -->
 <html lang="en" dir="ltr">
-  <head>
-    <!-- Character encoding declaration for UTF-8 -->
-    <meta charset="utf-8" />
+<head>
+  <meta charset="utf-8" />
+    <link rel="icon" href="images/AISE.png" type="image/png" />
 
-    <!-- Page title -->
-    <title>AI4SE</title>
+  <title>AI4SE</title>
+  <link rel="stylesheet" href="styles.css" />
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <style>
+    .coming-soon-section {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      min-height: 50vh;
+      text-align: center;
+      padding: 60px 20px;
+    }
+    .coming-soon-section i {
+      font-size: 60px;
+      color: #f0a500;
+      margin-bottom: 20px;
+    }
+    .coming-soon-section h2 {
+      font-size: 2rem;
+      margin-bottom: 10px;
+    }
+    .coming-soon-section p {
+      font-size: 1.1rem;
+      color: #666;
+    }
+  </style>
+</head>
+<body>
 
-    <!-- Link to external CSS file -->
-    <link rel="stylesheet" href="styles.css" />
+  <div id="navbar-container"></div>
+  <script>
+    fetch("navbar.html")
+      .then((response) => response.text())
+      .then((data) => {
+        document.getElementById("navbar-container").innerHTML = data;
+      });
+  </script>
 
-    <!-- Font Awesome library for icons -->
-    <link
-      rel="stylesheet"
-      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css"
-    />
+  <div class="speakers-header">
+    <h1>Registration</h1>
+  </div>
 
-    <!-- Ensures proper scaling on mobile devices -->
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  </head>
+  <div class="coming-soon-section">
+    <i class="fas fa-hourglass-half"></i>
+    <h2>Coming Soon</h2>
+    <p>Registration details will be announced shortly. Stay tuned!</p>
+  </div>
 
-  <body>
-    <div id="navbar-container"></div>
-
-    <script>
-      fetch("navbar.html")
-        .then((response) => response.text())
-        .then((data) => {
-          document.getElementById("navbar-container").innerHTML = data;
-        });
-    </script>
-    <!-- End of navigation bar -->
-
-    <!-- Main content section -->
-    <section id="directions" class="directions">
-      <div class="registration">
-          <h2>Registration Fees Including Taxes (TTC):</h2>
-
-          <table border="1" cellpadding="8" cellspacing="0">
-            <thead>
-              <tr>
-                <th>Category</th>
-                <th>Fee</th>
-              </tr>
-            </thead>
-            <tbody>
-              <tr>
-                <td>Student / Postdoc</td>
-                <td>200 DT</td>
-              </tr>
-              <tr>
-                <td>Academic</td>
-                <td>300 DT</td>
-              </tr>
-              <tr>
-                <td>Industry professional</td>
-                <td>400 DT</td>
-              </tr>
-            </tbody>
-          </table>
-<br> <br> 
-          <p>
-            A limited number of <strong>discounted registrations</strong> will be
-            offered to selected students  <br>
-      <br>
-            <strong>Deadline for student support application:</strong> <bold style="color: blue; text-decoration: line-through;"> 31/05/2025 </bold>
-          </p>
-          <br>
-          <p style="font-size: 13px;"> <sup>*</sup>  Applications will be evaluated based on academic merit and  motivation</p>
-          <hr style="border: none; height: 2px; background-color: #333;">
-          <br>
-<h2>Payment Method</h2>
-<h3p> <strong style="color: blue;"> Bank transfer or Order Form to the Association Smart Marketing Advisors </strong></h3>
-  <br>
-  <br>
-<p> 
-<strong>BANK  NAME:</strong>   UNION INTERNATIONALE DES BANQUES (UIB)<br>  <br>
-<strong>Branch:</strong> AGENCE PLACE DE L ASSEMBLE NATIONAL<br>  <br>
-<strong>ACCOUNT HOLDER:</strong> ASSOCIATION SMART MARKETING <br>  <br>
-<strong>RIB:</strong> 12 008 0000093007287 24 <br>  <br>
-<strong>IBAN:</strong>TN59 12 008 0000093007287 24 <br>  <br>
-
-<p>
-
-<br>
-        <hr style="border: none; height: 2px; background-color: #333;">
-        <h2>Registration form</h2>
-        <br>
-                      <ul sstyle="padding-left: 140px;">
-</li>
-<br>
-<li><strong>Registration deadline:</strong> <bold style="color: blue; text-decoration: line-through;"> 06/06/2025 </bold>
-</li>
-
-</ul>
-
-        </section>
-      </div>
-    </section>
-  </body>
+</body>
 </html>

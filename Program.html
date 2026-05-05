@@ -1,123 +1,58 @@
 <!DOCTYPE html>
-<!-- JV Source Codes | JVCodes.Com -->
 <html lang="en" dir="ltr">
-  <head>
-    <!-- Character encoding declaration for UTF-8 -->
-    <meta charset="utf-8" />
+<head>
+  <meta charset="utf-8" />
+    <link rel="icon" href="images/AISE.png" type="image/png" />
 
-    <!-- Page title -->
-    <title>AI4SE</title>
+  <title>AI4SE</title>
+  <link rel="stylesheet" href="styles.css" />
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <style>
+    .coming-soon-section {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      min-height: 50vh;
+      text-align: center;
+      padding: 60px 20px;
+    }
+    .coming-soon-section i {
+      font-size: 60px;
+      color: #f0a500;
+      margin-bottom: 20px;
+    }
+    .coming-soon-section h2 {
+      font-size: 2rem;
+      margin-bottom: 10px;
+    }
+    .coming-soon-section p {
+      font-size: 1.1rem;
+      color: #666;
+    }
+  </style>
+</head>
+<body>
 
-    <!-- Link to external CSS file -->
-    <link rel="stylesheet" href="styles.css" />
+  <div id="navbar-container"></div>
+  <script>
+    fetch("navbar.html")
+      .then((response) => response.text())
+      .then((data) => {
+        document.getElementById("navbar-container").innerHTML = data;
+      });
+  </script>
 
-    <!-- Font Awesome library for icons -->
-    <link
-      rel="stylesheet"
-      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css"
-    />
+  <div class="speakers-header">
+    <h1>Program</h1>
+  </div>
 
-    <!-- Ensures proper scaling on mobile devices -->
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  </head>
+  <div class="coming-soon-section">
+    <i class="fas fa-hourglass-half"></i>
+    <h2>Coming Soon</h2>
+    <p>The program will be announced shortly. Stay tuned!</p>
+  </div>
 
-  <body>
-    <div id="navbar-container"></div>
-
-    <script>
-      fetch("navbar.html")
-        .then((response) => response.text())
-        .then((data) => {
-          document.getElementById("navbar-container").innerHTML = data;
-        });
-    </script>
-    <!-- End of navigation bar -->
-
-    <h1>Summer School Program</h1>
-    <table class="schedule">
-      <thead>
-        <tr>
-          <th>Time</th>
-          <th>Wednesday 11/06</th>
-          <th>Thursday 12/06</th>
-          <th>Friday 13/06</th>
-        </tr>
-      </thead>
-      <tbody>
-        <tr>
-          <td>9:00 - 10:30</td>
-          <td class="school">Registration & Welcome Ceremony</td>
-          <td class="plenary">
-            Moataz Chouchen<br /><small
-              >"Towards understanding code review practices"</small
-            >
-          </td>
-          <td class="plenary">
-            Makram Soui<br /><small>"AI for user experience design"</small>
-          </td>
-        </tr>
-        <tr>
-          <td>10:30 - 11:00</td>
-          <td class="break">Coffee Break</td>
-          <td class="break">Coffee Break</td>
-          <td class="break">Coffee Break</td>
-        </tr>
-        <tr>
-          <td>11:00 - 12:30</td>
-          <td class="lecture">
-            Ali Ouni<br /><small
-              >"AI-Powered Solutions for Software Engineering in the Era of
-              Generative AI"</small
-            >
-          </td>
-          <td class="lecture">
-            Latifa Ben Arfa<br /><small
-              >"Génie logiciel augmenté : l’évolution des outils à l’ère de
-              l’IA"</small
-            >
-          </td>
-          <td class="industry">REGNOLOGY Inspiring Use Cases</td>
-        </tr>
-        <tr>
-          <td>12:30 - 13:30</td>
-          <td class="break">Lunch</td>
-          <td class="break">Lunch</td>
-          <td class="break">Lunch</td>
-        </tr>
-        <tr>
-          <td>13:30 - 15:00</td>
-          <td class="lecture">
-            Mohamed Tounsi<br /><small
-              >"AI Applied to Software Engineering: Future Trends"</small
-            >
-          </td>
-          <td class="lecture">
-            Med Wiem Mkaouer<br /><small
-              >"Bridging the Gap: AI-Driven Software Testing and Quality
-              Assurance"</small
-            >
-          </td>
-          <td class="extra">Student Panel Session</td>
-        </tr>
-        <tr>
-          <td>15:00 - 16:30</td>
-          <td class="lecture">
-            Montassar Ben Messaoud<br /><small
-              >"AI-Driven Bug Management: From Detection to Resolution"</small
-            >
-          </td>
-          <td class="industry">
-            Meriem Zhioua<br /><small>"VERMEG: A Vision for AI"</small>
-          </td>
-          <td class="school">Closing Ceremony</td>
-        </tr>
-        <tr>
-          <td>16:30 - 17:30</td>
-          <td class="industry">VERMEG Inspiring Use Cases</td>
-          <td class="school">Research Panel Session</td>
-          <td></td>
-        </tr>
-      </tbody>
-    </table>
-  </body>
+</body>
 </html>

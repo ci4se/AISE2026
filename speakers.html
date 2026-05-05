@@ -1,184 +1,58 @@
 <!DOCTYPE html>
-<!-- JV Source Codes | JVCodes.Com -->
 <html lang="en" dir="ltr">
-  <head>
-    <!-- Character encoding declaration for UTF-8 -->
-    <meta charset="utf-8" />
+<head>
+  <meta charset="utf-8" />
+    <link rel="icon" href="images/AISE.png" type="image/png" />
 
-    <!-- Page title -->
-    <title>AI4SE</title>
+  <title>AI4SE</title>
+  <link rel="stylesheet" href="styles.css" />
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <style>
+    .coming-soon-section {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      min-height: 50vh;
+      text-align: center;
+      padding: 60px 20px;
+    }
+    .coming-soon-section i {
+      font-size: 60px;
+      color: #f0a500;
+      margin-bottom: 20px;
+    }
+    .coming-soon-section h2 {
+      font-size: 2rem;
+      margin-bottom: 10px;
+    }
+    .coming-soon-section p {
+      font-size: 1.1rem;
+      color: #666;
+    }
+  </style>
+</head>
+<body>
 
-    <!-- Link to external CSS file -->
-    <link rel="stylesheet" href="styles.css" />
+  <div id="navbar-container"></div>
+  <script>
+    fetch("navbar.html")
+      .then((response) => response.text())
+      .then((data) => {
+        document.getElementById("navbar-container").innerHTML = data;
+      });
+  </script>
 
-    <!-- Font Awesome library for icons -->
-    <link
-      rel="stylesheet"
-      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css"
-    />
+  <div class="speakers-header">
+    <h1>Speakers</h1>
+  </div>
 
-    <!-- Ensures proper scaling on mobile devices -->
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  </head>
+  <div class="coming-soon-section">
+    <i class="fas fa-hourglass-half"></i>
+    <h2>Coming Soon</h2>
+    <p>Our speakers will be announced shortly. Stay tuned!</p>
+  </div>
 
-  <body>
-    <!-- Navigation bar starts here -->
-    <div id="navbar-container"></div>
-
-    <script>
-      fetch("navbar.html")
-        .then((response) => response.text())
-        .then((data) => {
-          document.getElementById("navbar-container").innerHTML = data;
-        });
-    </script>
-    <!-- End of navigation bar -->
-
-    <div class="speakers-header">
-      <h1>Meet Our Plenary Speakers</h1>
-    </div>
-
-    <section class="speakers">
-      <div class="speakers-card">
-        <img src="images/Ali.jpg" alt="Pr. Ali Ouni" />
-        <h2>Pr. Ali Ouni</h2>
-        <p>Full Professor, Computer Science and Software Engineering</p>
-        <a
-          href=" https://ouniali.github.io/
-        "
-          class="website-btn"
-          target="_blank"
-        >
-          <i class="fas fa-globe"></i> Website</a
-        >
-      </div>
-
-      <div class="speakers-card">
-        <img src="images/Makram.jpg" alt="Dr. Makram Soui" />
-        <h2>Dr. Makram Soui</h2>
-        <p>
-          Assistant Professor of Computer Science, College of Innovation and
-          Technology, The University of Michigan-Flint <br />
-          <a
-            href=" https://directory.umflint.edu/computer-science-engineering-and-physics/msoui
-
-        "
-            class="website-btn"
-            target="_blank"
-          >
-            <i class="fas fa-globe"></i> Website</a
-          >
-        </p>
-      </div>
-
-      <div class="speakers-card">
-        <img src="images/moataz.jpg" alt="Dr. Moataz Chouchen" />
-        <h2>Dr. Moataz Chouchen</h2>
-        <p>
-          Assistant Professor of Electrical and Computer Engineering, Concordia
-          University, Canada
-        </p>
-        <a
-          href=" https://www.concordia.ca/faculty/moataz-chouchen.html
-
-
-        "
-          class="website-btn"
-          target="_blank"
-        >
-          <i class="fas fa-globe"></i> Website</a
-        >
-      </div>
-    </section>
-    <div class="speakers-header">
-      <h1>Meet Our Lecturers</h1>
-    </div>
-    <br />
-    <div class="speakers-container">
-      <section class="lecturers">
-        <div class="speakers-card">
-          <img src="images/Latifa.jpg" alt="Pr. Latifa Ben Arfa Rabai" />
-          <h2>Pr. Latifa Ben Arfa Rabai</h2>
-          <p>
-            Full Professor, Higher Institute of Management of Tunis, Tunisia
-          </p>
-          <a
-            href=" https://orcid.org/0000-0002-5657-4682
-
-        "
-            class="website-btn"
-            target="_blank"
-          >
-            <i class="fas fa-globe"></i> Website</a
-          >
-        </div>
-
-        <div class="speakers-card">
-          <img src="images/Zhioua.jpg" alt="Mariem Zhioua" />
-          <h2>Dr. Mariem Zhioua</h2>
-          <p>
-            VERMEG Tunisia <br />
-            <a
-              href="https://tn.linkedin.com/in/meriem-zhioua-a0312645
-
-        "
-              class="website-btn"
-              target="_blank"
-            >
-              <i class="fas fa-globe"></i> Website</a
-            >
-          </p>
-        </div>
-
-        <div class="speakers-card">
-          <img src="images/Wiem2.jpg" alt="Pr. Mohamed Wiem Mkaouer" />
-          <h2>Dr. Mohamed Wiem Mkaouer</h2>
-          <p>
-            Associate Professor, Graduate Program Director of Artificial
-            Intelligence and Software Engineering, University of Michigan-Flint
-          </p>
-          <a
-            href=" https://directory.umflint.edu/computer-science-engineering-and-physics/mmkaouer
-        "
-            class="website-btn"
-            target="_blank"
-          >
-            <i class="fas fa-globe"></i> Website</a
-          >
-        </div>
-
-        <div class="speakers-card">
-          <img src="images/montassar.png" alt="Dr. Montassar Ben Messaoud" />
-          <h2>Dr. Montassar Ben Messaoud</h2>
-          <p>Assistant Professor, Tunis Business School, Tunisia</p>
-          <a
-            href="https://tunis-business-school.tn/member/montassar-ben-messaoud/
-        "
-            class="website-btn"
-            target="_blank"
-          >
-            <i class="fas fa-globe"></i> Website</a
-          >
-        </div>
-
-        <div class="speakers-card">
-          <img
-            src="images/tounsi.jpg"
-            alt="Eng. Mohamed Tounsi
-        "
-          />
-          <h2>Eng. Mohamed Tounsi</h2>
-          <p>REGNOLOGY Tunisia</p>
-          <a
-            href="https://tn.linkedin.com/in/mohamed-tounsi-b7a938278
-        "
-            class="website-btn"
-            target="_blank"
-          >
-            <i class="fas fa-globe"></i> Website</a
-          >
-        </div>
-      </section>
-    </div>
-  </body>
+</body>
 </html>
