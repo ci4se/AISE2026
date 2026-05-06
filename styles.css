@@ -201,12 +201,7 @@ input[type="checkbox"] {
 
 /* Venue styling */
 .venue-header {
-  text-align: center;
-  padding: 180px 20px;
-  background: url("images/IHEC.png") no-repeat center center;
-  background-size: cover;
-  position: relative;
-  color: white;
+  display: none;
 }
 
 .venue-header::before {
