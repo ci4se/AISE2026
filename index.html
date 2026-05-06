@@ -1,30 +1,84 @@
 <!DOCTYPE html>
-<!-- JV Source Codes | JVCodes.Com -->
 <html lang="en" dir="ltr">
   <head>
-    <!-- Character encoding declaration for UTF-8 -->
-     <link rel="icon" href="images/AISE.png" type="image/png" />
     <meta charset="utf-8" />
-
-    <!-- Page title -->
-    <title>AI4SE</title>
-
-    <!-- Link to external CSS file -->
+    <link rel="icon" href="images/AISE.png" type="image/png" />
+    <title>AISE 2026</title>
     <link rel="stylesheet" href="styles.css" />
-
-    <!-- Font Awesome library for icons -->
-    <link
-      rel="stylesheet"
-      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css"
-    />
-
-    <!-- Ensures proper scaling on mobile devices -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <style>
+      .about-section {
+        max-width: 900px;
+        margin: 50px auto;
+        padding: 0 30px;
+      }
+      .about-section h2 {
+        font-size: 1.5rem;
+        color: #003366;
+        border-left: 5px solid #003366;
+        padding-left: 12px;
+        margin-bottom: 20px;
+      }
+      .about-section p {
+        font-size: 1rem;
+        color: #444;
+        line-height: 1.8;
+        margin-bottom: 20px;
+        text-align: justify;
+      }
+      .info-cards {
+        display: flex;
+        flex-wrap: wrap;
+        gap: 20px;
+        margin: 40px auto;
+        max-width: 900px;
+        padding: 0 30px;
+        justify-content: center;
+      }
+      .info-card {
+        background: #f0f6ff;
+        border: 1px solid #c0d8ff;
+        border-radius: 10px;
+        padding: 20px 25px;
+        flex: 1;
+        min-width: 220px;
+        text-align: center;
+        box-shadow: 0 2px 6px rgba(0,0,0,0.06);
+      }
+      .info-card i {
+        font-size: 28px;
+        color: #003366;
+        margin-bottom: 10px;
+      }
+      .info-card h3 {
+        font-size: 0.95rem;
+        color: #003366;
+        margin-bottom: 6px;
+        text-transform: uppercase;
+        letter-spacing: 0.5px;
+      }
+      .info-card p {
+        font-size: 0.95rem;
+        color: #333;
+        font-weight: 500;
+      }
+      .sponsors {
+        text-align: center;
+        max-width: 900px;
+        margin: 10px auto 50px;
+        padding: 0 30px;
+        font-size: 0.95rem;
+        color: #666;
+      }
+      .sponsors strong {
+        color: #003366;
+      }
+    </style>
   </head>
 
   <body>
     <div id="navbar-container"></div>
-
     <script>
       fetch("navbar.html")
         .then((response) => response.text())
@@ -33,57 +87,70 @@
         });
     </script>
 
-    <!-- End of navigation bar -->
-
-    <!-- Main content section -->
+    <!-- Hero Image -->
     <div class="content">
-      <!-- Content blocks -->
       <div class="main_div">
         <p id="title_p">
-          Summer School on Artificial Intelligence <br />
+          2nd IEEE CIS Summer School on Artificial Intelligence <br />
           for Software Engineering (AISE' 2026) <br />
-          23 June - 25 June 2026, Tunis, Tunisia
+          23 June – 25 June 2026 | Carthage, Tunisia
         </p>
       </div>
-      <section class="registration">
-        <p>
-          A dynamic AI landscape is emerging throughout Africa, poised to have a
-          transformative impact. In Africa alone, over 2,400 companies are
-          reportedly involved in AI. <br />
-          According to Statista, the generative AI market in Africa is expected
-          to expand from $0.89 billion in 2024 to $8.75 billion by 2028. More
-          than 30 AI communities, from developing regions such as Sudan and Mali
-          to well-established centers like South Africa and Tunisia, are leading
-          this movement. <br />
-          Therefore, universities critically need to support this growth by
-          providing AI-focused software engineering skills and specializations,
-          to develop and sustain the next generation of AI-software
-          infrastructure.
-          <br />
-          As part of supporting this cause, It is our pleasure to call for the
-          initiation of the 2026 IEEE Summer School on Artificial
-          Intelligence for Software Engineering. The main goal of the summer
-          school is to provide senior undergraduate students, M.Sc. or PhD
-          students and other potential audience with hands-on knowledge and
-          expert views on the future development at the intersection between AI
-          and software engineering. <br />
-          <br />
-          Topics include how to design AI-enabled software systems, their
-          evolution and debugging. The Talks will be given by Plenary Speakers
-          that are active researchers in North American and international
-          institutes. Lecturers will be given by local researchers from both
-          Academia and Industry, to bring both perspectives for the students.
-          The second edition of the summer school will be located in Tunisia,
-          co-sponsored by the LARODEC Laboratory and the Institute of Data
-          Engineering, Analytics, and Science at the University of
-          Michigan-Flint.
-        </p>
-      </section>
+    </div>
+
+    <!-- Info Cards -->
+    <div class="info-cards">
+      <div class="info-card">
+        <i class="fas fa-calendar-alt"></i>
+        <h3>Date</h3>
+        <p>June 23 – 25, 2026</p>
+      </div>
+      <div class="info-card">
+        <i class="fas fa-map-marker-alt"></i>
+        <h3>Venue</h3>
+        <p>IHEC Carthage, Tunisia</p>
+      </div>
+      <div class="info-card">
+        <i class="fas fa-users"></i>
+        <h3>Audience</h3>
+        <p>Undergraduate, M.Sc. &amp; Ph.D. Students</p>
+      </div>
+      <div class="info-card">
+        <i class="fas fa-microphone"></i>
+        <h3>Speakers</h3>
+        <p>4 Plenary Talks + 5 Lectures</p>
+      </div>
+    </div>
+
+    <!-- About Section -->
+    <div class="about-section">
+      <h2>About the Summer School</h2>
+      <p>
+        The main goal of the summer school is to provide senior undergraduate, M.Sc., and Ph.D. students,
+        as well as other interested participants, with hands-on knowledge and expert insights into future
+        developments at the intersection of artificial intelligence and software engineering. Topics include
+        the use of GenAI in software compliance, maintenance, and cyber-security.
+      </p>
+      <p>
+        The talks will be delivered by plenary speakers who are active researchers from North American,
+        European, and Asian institutions. Additional lectures will be given by local researchers from both
+        academia and industry, offering complementary perspectives to participants.
+      </p>
+      <p>
+        The second edition of the summer school will take place in Carthage and will be co-sponsored by
+        the LARODEC Laboratory and the Institute of Data Engineering, Analytics, and Science at the
+        University of Michigan–Flint.
+      </p>
+    </div>
+
+    <!-- Sponsors -->
+    <div class="sponsors">
+      <p>Co-sponsored by <strong>LARODEC Laboratory</strong> and the <strong>Institute of Data Engineering, Analytics, and Science</strong> at the University of Michigan–Flint</p>
     </div>
 
     <footer>
-  &copy; 2026 AISE Initiative
-</footer>
+      &copy; 2026 AISE Initiative
+    </footer>
 
   </body>
 </html>

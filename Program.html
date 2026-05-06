@@ -2,34 +2,18 @@
 <html lang="en" dir="ltr">
 <head>
   <meta charset="utf-8" />
-    <link rel="icon" href="images/AISE.png" type="image/png" />
-
-  <title>AI4SE</title>
+  <link rel="icon" href="images/AISE.png" type="image/png" />
+  <title>Programme - AISE 2026</title>
   <link rel="stylesheet" href="styles.css" />
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <style>
-    .coming-soon-section {
-      display: flex;
-      flex-direction: column;
-      align-items: center;
-      justify-content: center;
-      min-height: 50vh;
-      text-align: center;
-      padding: 60px 20px;
-    }
-    .coming-soon-section i {
-      font-size: 60px;
-      color: #f0a500;
-      margin-bottom: 20px;
-    }
-    .coming-soon-section h2 {
-      font-size: 2rem;
-      margin-bottom: 10px;
-    }
-    .coming-soon-section p {
-      font-size: 1.1rem;
-      color: #666;
+    .break {
+      background-color: #f5f5f5;
+      color: #888;
+      font-style: italic;
+      font-size: 13px;
+      padding: 6px !important;
     }
   </style>
 </head>
@@ -45,14 +29,124 @@
   </script>
 
   <div class="speakers-header">
-    <h1>Program</h1>
+    <h1>Programme</h1>
   </div>
 
-  <div class="coming-soon-section">
-    <i class="fas fa-hourglass-half"></i>
-    <h2>Coming Soon</h2>
-    <p>The program will be announced shortly. Stay tuned!</p>
+  <div style="max-width: 1200px; margin: 40px auto; padding: 0 20px;">
+
+    <!-- Schedule Table -->
+    <table class="schedule">
+      <thead>
+        <tr>
+          <th style="width: 10%;">Time</th>
+          <th>Tuesday 23/06</th>
+          <th>Wednesday 24/06</th>
+          <th>Thursday 25/06</th>
+        </tr>
+      </thead>
+      <tbody>
+
+        <!-- 9:00 - 10:30 -->
+        <tr>
+          <td><strong>9:00 - 10:30</strong></td>
+          <td class="school">Registration &amp; Welcome Ceremony</td>
+          <td class="plenary">
+            <strong>Ali Ouni</strong><br />
+            <em>"Rethinking Software Maintenance"</em>
+          </td>
+          <td class="plenary">
+            <strong>Fehmi Jaafar</strong><br />
+            <em>"Securing the Future: The Role of Generative AI in Cyber Defense"</em>
+          </td>
+        </tr>
+
+        <!-- 10:30 - 11:00 -->
+        <tr style="height: 30px;">
+          <td style="font-size: 12px;"><strong>10:30 - 11:00</strong></td>
+          <td class="break">☕ Coffee Break</td>
+          <td class="break">☕ Coffee Break</td>
+          <td class="break">☕ Coffee Break</td>
+        </tr>
+
+        <!-- 11:00 - 12:30 -->
+        <tr>
+          <td><strong>11:00 - 12:30</strong></td>
+          <td class="plenary">
+            <strong>Sallam Abualhaija</strong><br />
+            <em>"Engineering Trust: Building Regulatory-Compliant Soft. Systems"</em>
+          </td>
+          <td class="plenary">
+            <strong>Houari Sahraoui</strong><br />
+            <em>"Maintaining the Unmaintainable: Challenges in Modern Software Systems"</em>
+          </td>
+          <td class="industry">
+            <strong>Mohamed Tounsi</strong><br />
+            <em>"Beyond Hype: Real Business Transformation with GenAI"</em>
+          </td>
+        </tr>
+
+        <!-- 12:30 - 13:30 -->
+        <tr style="height: 30px;">
+          <td style="font-size: 12px;"><strong>12:30 - 13:30</strong></td>
+          <td class="break">🍽️ Lunch</td>
+          <td class="break">🍽️ Lunch</td>
+          <td class="break">🍽️ Lunch</td>
+        </tr>
+
+        <!-- 13:30 - 15:00 -->
+        <tr>
+          <td><strong>13:30 - 15:00</strong></td>
+          <td class="industry">
+            <strong>Ilyes Ben Khalifa</strong><br />
+            <em>"LARK: License Analysis with RAG &amp; Knowledge Graphs"</em>
+          </td>
+          <td class="lecture">
+            <strong>Med Wiem Mkaouer</strong><br />
+            <em>"Bridging the Gap: AI-Driven Software Testing and Quality Assurance"</em>
+          </td>
+          <td class="extra">Workshop Session</td>
+        </tr>
+
+        <!-- 15:00 - 16:30 -->
+        <tr>
+          <td><strong>15:00 - 16:30</strong></td>
+          <td class="lecture">
+            <strong>Montassar Ben Massoud</strong><br />
+            <em>"Transforming Undergraduate Final Projects into Research Excellence"</em>
+          </td>
+          <td class="industry">
+            <strong>Meriem Zhioua</strong><br />
+            <em>"VERMEG: A Vision for AI"</em>
+          </td>
+          <td class="school">Closing Ceremony</td>
+        </tr>
+
+        <!-- 16:30 - 17:30 -->
+        <tr>
+          <td><strong>16:30 - 17:30</strong></td>
+          <td class="extra">Workshop Session</td>
+          <td class="extra">Research Panel Session</td>
+          <td></td>
+        </tr>
+
+      </tbody>
+    </table>
+
+    <!-- Legend BELOW the table -->
+    <div class="legend-horizontal" style="margin-top: 30px;">
+      <h3>Color Legend</h3>
+      <span class="legend-item"><span class="legend-box plenary"></span>Plenary Talk</span>
+      <span class="legend-item"><span class="legend-box school"></span>School Event</span>
+      <span class="legend-item"><span class="legend-box industry"></span>Industry Talk</span>
+      <span class="legend-item"><span class="legend-box lecture"></span>Lecture</span>
+      <span class="legend-item"><span class="legend-box extra"></span>Extra Session</span>
+    </div>
+
   </div>
+
+  <footer>
+    &copy; 2026 AISE Initiative
+  </footer>
 
 </body>
 </html>

@@ -2,34 +2,103 @@
 <html lang="en" dir="ltr">
 <head>
   <meta charset="utf-8" />
-    <link rel="icon" href="images/AISE.png" type="image/png" />
-
-  <title>AI4SE</title>
+  <link rel="icon" href="images/AISE.png" type="image/png" />
+  <title>Speakers | AISE 2026</title>
   <link rel="stylesheet" href="styles.css" />
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <style>
-    .coming-soon-section {
+    .speakers-section {
+      max-width: 1100px;
+      margin: 40px auto;
+      padding: 0 20px;
+    }
+    .speakers-section h2 {
+      font-size: 1.6rem;
+      color: #003366;
+      border-bottom: 3px solid #003366;
+      padding-bottom: 8px;
+      margin-bottom: 30px;
+      margin-top: 50px;
+    }
+    .speaker-card {
       display: flex;
-      flex-direction: column;
+      gap: 25px;
+      align-items: flex-start;
+      background: #fff;
+      border: 1px solid #ddd;
+      border-radius: 10px;
+      padding: 20px;
+      margin-bottom: 25px;
+      box-shadow: 0 2px 8px rgba(0,0,0,0.08);
+      transition: transform 0.2s ease;
+    }
+    .speaker-card:hover {
+      transform: scale(1.01);
+    }
+    .speaker-card img {
+      width: 140px;
+      height: 160px;
+      object-fit: cover;
+      border-radius: 8px;
+      border: 2px solid #003366;
+      flex-shrink: 0;
+    }
+    .speaker-info h3 {
+      font-size: 1.2rem;
+      color: #003366;
+      margin-bottom: 8px;
+    }
+    .speaker-info p {
+      font-size: 0.95rem;
+      color: #555;
+      margin-bottom: 6px;
+    }
+    .speaker-info .topics {
+      font-size: 0.9rem;
+      color: #333;
+      margin-top: 8px;
+    }
+    .speaker-info .topics span {
+      display: inline-block;
+      background: #e8f0fe;
+      color: #003366;
+      border-radius: 20px;
+      padding: 3px 10px;
+      margin: 3px 3px 0 0;
+      font-size: 0.82rem;
+    }
+    .speaker-info a {
+      color: #0073ff;
+      text-decoration: none;
+      font-size: 0.9rem;
+    }
+    .speaker-info a:hover {
+      text-decoration: underline;
+    }
+    .badge {
+      display: inline-block;
+      padding: 3px 12px;
+      border-radius: 20px;
+      font-size: 0.78rem;
+      font-weight: 600;
+      margin-bottom: 8px;
+      color: white;
+    }
+    .badge.plenary { background-color: #a9dfbf; color: #1a5e35; }
+    .badge.lecture { background-color: #f9e79f; color: #7d6608; }
+    .no-photo {
+      width: 140px;
+      height: 160px;
+      border-radius: 8px;
+      border: 2px solid #003366;
+      background: #e8f0fe;
+      display: flex;
       align-items: center;
       justify-content: center;
-      min-height: 50vh;
-      text-align: center;
-      padding: 60px 20px;
-    }
-    .coming-soon-section i {
-      font-size: 60px;
-      color: #f0a500;
-      margin-bottom: 20px;
-    }
-    .coming-soon-section h2 {
-      font-size: 2rem;
-      margin-bottom: 10px;
-    }
-    .coming-soon-section p {
-      font-size: 1.1rem;
-      color: #666;
+      flex-shrink: 0;
+      color: #003366;
+      font-size: 40px;
     }
   </style>
 </head>
@@ -48,11 +117,171 @@
     <h1>Speakers</h1>
   </div>
 
-  <div class="coming-soon-section">
-    <i class="fas fa-hourglass-half"></i>
-    <h2>Coming Soon</h2>
-    <p>Our speakers will be announced shortly. Stay tuned!</p>
+  <div class="speakers-section">
+
+    <!-- PLENARY SPEAKERS -->
+    <h2>🎓 Plenary Speakers</h2>
+
+    <!-- Houari Sahraoui -->
+    <div class="speaker-card">
+      <img src="images/Houari.jpg" alt="Houari Sahraoui" />
+      <div class="speaker-info">
+        <span class="badge plenary">Plenary Talk</span>
+        <h3>Pr. Houari Sahraoui</h3>
+        <p><strong>Affiliation:</strong> Full Professor, Department of Software Engineering and IT, University of Montreal</p>
+        <p><strong>Talk:</strong> "Maintaining the Unmaintainable: Challenges in Modern Software Systems"</p>
+        <p><i class="fas fa-globe"></i> <a href="https://diro.umontreal.ca/repertoire-departement/professeurs/professeur/in/in15076/sg/Houari%20Sahraoui/" target="_blank">Website</a></p>
+        <div class="topics">
+          <span>Automated Software Engineering</span>
+          <span>Search-Based Software Engineering</span>
+          <span>Model-Driven Engineering</span>
+        </div>
+      </div>
+    </div>
+
+    <!-- Ali Ouni -->
+    <div class="speaker-card">
+      <img src="images/Ali.jpg" alt="Ali Ouni" />
+      <div class="speaker-info">
+        <span class="badge plenary">Plenary Talk</span>
+        <h3>Pr. Ali Ouni</h3>
+        <p><strong>Affiliation:</strong> Full Professor, Department of Software Engineering and IT, École de technologie supérieure (ÉTS Montréal), University of Quebec</p>
+        <p><strong>Talk:</strong> "Rethinking Software Maintenance"</p>
+        <p><i class="fas fa-globe"></i> <a href="https://ouniali.github.io/" target="_blank">Website</a></p>
+        <div class="topics">
+          <span>Computational Intelligence</span>
+          <span>Search-Based Software Engineering</span>
+          <span>Artificial Intelligence</span>
+        </div>
+      </div>
+    </div>
+
+    <!-- Fehmi Jaafar -->
+    <div class="speaker-card">
+      <img src="images/fahmi.jpg" alt="Fehmi Jaafar" />
+      <div class="speaker-info">
+        <span class="badge plenary">Plenary Talk</span>
+        <h3>Dr. Fehmi Jaafar</h3>
+        <p><strong>Affiliation:</strong> Associate Professor, University of Quebec</p>
+        <p><strong>Talk:</strong> "Securing the Future: The Role of Generative AI in Cyber Defense"</p>
+        <p><i class="fas fa-globe"></i> <a href="https://www.pulaval.com/autrices-et-auteurs/jaafar-fehmi" target="_blank">Website</a></p>
+        <div class="topics">
+          <span>Secure and Safe AI</span>
+          <span>Software Security</span>
+          <span>Cyber Security</span>
+        </div>
+      </div>
+    </div>
+
+    <!-- Sallam Abualhaija -->
+    <div class="speaker-card">
+      <img src="images/sallam.jpg" alt="Sallam Abualhaija" />
+      <div class="speaker-info">
+        <span class="badge plenary">Plenary Talk</span>
+        <h3>Dr. Sallam Abualhaija</h3>
+        <p><strong>Affiliation:</strong> Research Scientist, University of Luxembourg</p>
+        <p><strong>Talk:</strong> "Engineering Trust: Building Regulatory-Compliant Software Systems"</p>
+        <p><i class="fas fa-globe"></i> <a href="https://www.uni.lu/snt-en/people/sallam-abualhaija/" target="_blank">Website</a></p>
+        <div class="topics">
+          <span>Software Security Requirements</span>
+          <span>Regulatory Compliance</span>
+          <span>Trustworthy AI</span>
+        </div>
+      </div>
+    </div>
+
+    <!-- LECTURERS -->
+    <h2>📚 Lecturers</h2>
+
+    <!-- Meriem Zhioua -->
+    <div class="speaker-card">
+        <img src="images/Zhioua.jpg" alt="Mariem Zhioua" />      <div class="speaker-info">
+        <span class="badge lecture">Lecture</span>
+        <h3>Dr. Mariem Zhioua</h3>
+        <p><strong>Affiliation:</strong> PMO at VERMEG Tunisia</p>
+        <p><strong>Talk:</strong> "VERMEG: A Vision for AI"</p>
+        <p><i class="fab fa-linkedin"></i> <a href="https://tn.linkedin.com/in/meriem-zhioua-a0312645" target="_blank">LinkedIn</a></p>
+        <div class="topics">
+          <span>Generative AI</span>
+          <span>Project Management</span>
+          <span>Software Engineering</span>
+        </div>
+      </div>
+    </div>
+
+    <!-- Mohamed Tounsi -->
+    <div class="speaker-card">
+        <img src="images/tounsi.jpg" alt="Mohamed Tounsi" />      <div class="speaker-info">
+        <span class="badge lecture">Lecture</span>
+        <h3>Ing. Mohamed Tounsi</h3>
+        <p><strong>Affiliation:</strong> Senior Manager at REGNOLOGY Tunisia</p>
+        <p><strong>Talk:</strong> "Beyond Hype: Real Business Transformation with GenAI"</p>
+        <p><i class="fab fa-linkedin"></i> <a href="https://tn.linkedin.com/in/mohamed-tounsi-b7a938278" target="_blank">LinkedIn</a></p>
+        <div class="topics">
+          <span>Project Management</span>
+          <span>Software Quality</span>
+          <span>AI-powered Regulatory Reporting</span>
+        </div>
+      </div>
+    </div>
+
+    <!-- Ilyes Ben Khalifa -->
+    <div class="speaker-card">
+        <img src="images/Ilyes.jpg" alt="Ilyes Ben Khalifa" />      
+      <div class="speaker-info">
+        <span class="badge lecture">Lecture</span>
+        <h3>Ilyes Ben Khalifa</h3>
+        <p><strong>Affiliation:</strong> Freshly graduated from Tunis Business School</p>
+        <p><strong>Talk:</strong> "LARK: License Analysis with RAG &amp; Knowledge Graphs"</p>
+        <p><i class="fab fa-linkedin"></i> <a href="https://www.linkedin.com/in/ilyes-ben-khalifa-112045221/" target="_blank">LinkedIn</a></p>
+        <div class="topics">
+          <span>Software Compliance</span>
+          <span>License Analysis</span>
+          <span>AI4SE</span>
+        </div>
+      </div>
+    </div>
+
+    <!-- Med Wiem Mkaouer -->
+    <div class="speaker-card">
+      <img src="images/Wiem2.jpg" alt="Wiem Mkaouer" />
+      <div class="speaker-info">
+        <span class="badge lecture">Lecture</span>
+        <h3>Dr. Mohamed Wiem Mkaouer</h3>
+        <p><strong>Affiliation:</strong> Associate Professor, Graduate Program Director of Artificial Intelligence and Software Engineering, University of Michigan-Flint</p>
+        <p><strong>Talk:</strong> "Bridging the Gap: AI-Driven Software Testing and Quality Assurance"</p>
+        <p><i class="fas fa-globe"></i> <a href="https://directory.umflint.edu/computer-science-engineering-and-physics/mmkaouer" target="_blank">Website</a></p>
+        <div class="topics">
+          <span>Refactoring</span>
+          <span>Many-Objective Optimization</span>
+          <span>Mining Software Repositories</span>
+          <span>Search-Based Software Engineering</span>
+        </div>
+      </div>
+    </div>
+
+    <!-- Montassar Ben Messaoud -->
+    <div class="speaker-card">
+        <img src="images/montassar.png" alt="Montassar" />      
+        <div class="speaker-info">
+        <span class="badge lecture">Lecture</span>
+        <h3>Dr. Montassar Ben Messaoud</h3>
+        <p><strong>Affiliation:</strong> Tenure-Track Assistant Professor, Tunis Business School, Tunisia</p>
+        <p><strong>Talk:</strong> "Transforming Undergraduate Final Projects into Research Excellence"</p>
+        <p><i class="fas fa-globe"></i> <a href="https://tunis-business-school.tn/member/montassar-ben-messaoud/" target="_blank">Website</a></p>
+        <div class="topics">
+          <span>AI4SE</span>
+          <span>Software Compliance</span>
+          <span>Software Quality</span>
+        </div>
+      </div>
+    </div>
+
   </div>
+
+  <footer>
+    &copy; 2026 AISE Initiative
+  </footer>
 
 </body>
 </html>
