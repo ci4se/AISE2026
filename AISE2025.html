@@ -1,0 +1,715 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+<head>
+  <meta charset="utf-8" />
+  <link rel="icon" href="images/AISE.png" type="image/png" />
+  <title>AISE 2025 – Retrospective</title>
+  <link rel="stylesheet" href="styles.css" />
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css" />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@700&family=Source+Sans+3:wght@300;400;600&display=swap" rel="stylesheet" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+  <style>
+    /* ── Root & base ───────────────────────────────────────── */
+    :root {
+      --navy: #003366;
+      --gold:  #c8922a;
+      --light: #f5f8fc;
+      --mid:   #e2ecf8;
+      --text:  #2c2c2c;
+      --muted: #666;
+    }
+    body {
+      font-family: 'Source Sans 3', sans-serif;
+      color: var(--text);
+      margin: 0;
+      background: #fff;
+    }
+
+    /* ══════════════════════════════════════════════════════════
+       HERO SLIDESHOW  — full-width, right after navbar
+    ══════════════════════════════════════════════════════════ */
+    .slideshow-wrap {
+      position: relative;
+      width: 100%;
+      height: 520px;
+      overflow: hidden;
+      background: #000;
+      margin-top: 70px; /* ← pushes slideshow below the fixed navbar.
+                            Inspect your <nav> in the browser and change
+                            this value if it still overlaps. */
+    }
+    @media (max-width: 700px) { .slideshow-wrap { height: 280px; margin-top: 70px; } }
+
+    .slide {
+      position: absolute;
+      inset: 0;
+      opacity: 0;
+      transition: opacity .8s ease;
+      background-size: cover;
+      background-position: center;
+    }
+    .slide.active { opacity: 1; }
+
+    /* Dark gradient overlay so text reads well */
+    .slide::after {
+      content: '';
+      position: absolute;
+      inset: 0;
+      background: linear-gradient(to bottom,
+        rgba(0,0,0,.18) 0%,
+        rgba(0,0,0,.55) 100%);
+    }
+
+    /* Caption */
+    .slide-caption {
+      position: absolute;
+      bottom: 80px;
+      left: 50%;
+      transform: translateX(-50%);
+      z-index: 2;
+      text-align: center;
+      color: #fff;
+      width: 90%;
+      max-width: 800px;
+      pointer-events: none;
+    }
+    .slide-caption h1 {
+      font-family: 'Playfair Display', serif;
+      font-size: clamp(1.5rem, 4vw, 2.6rem);
+      margin: 0 0 10px;
+      text-shadow: 0 2px 8px rgba(0,0,0,.5);
+      line-height: 1.2;
+    }
+    .slide-caption p {
+      font-size: clamp(.85rem, 2vw, 1.05rem);
+      opacity: .88;
+      margin: 0;
+      text-shadow: 0 1px 4px rgba(0,0,0,.4);
+    }
+
+    /* Prev / Next arrows */
+    .slide-btn {
+      position: absolute;
+      top: 50%;
+      transform: translateY(-50%);
+      z-index: 3;
+      background: rgba(255,255,255,.18);
+      border: 2px solid rgba(255,255,255,.45);
+      color: #fff;
+      width: 46px; height: 46px;
+      border-radius: 50%;
+      font-size: 1.1rem;
+      cursor: pointer;
+      display: flex; align-items: center; justify-content: center;
+      transition: background .2s;
+      backdrop-filter: blur(4px);
+    }
+    .slide-btn:hover { background: rgba(255,255,255,.32); }
+    .slide-btn.prev { left: 18px; }
+    .slide-btn.next { right: 18px; }
+
+    /* Dot indicators */
+    .slide-dots {
+      position: absolute;
+      bottom: 22px;
+      left: 50%;
+      transform: translateX(-50%);
+      z-index: 3;
+      display: flex;
+      gap: 8px;
+    }
+    .dot {
+      width: 9px; height: 9px;
+      border-radius: 50%;
+      background: rgba(255,255,255,.45);
+      cursor: pointer;
+      transition: background .25s, transform .25s;
+      border: none;
+      padding: 0;
+    }
+    .dot.active { background: #fff; transform: scale(1.3); }
+
+    /* ── Page info banner (below slideshow) ────────────────── */
+    .retro-hero {
+      background: linear-gradient(135deg, var(--navy) 0%, #00509e 60%, #1a6bb5 100%);
+      color: #fff;
+      text-align: center;
+      padding: 46px 30px 40px;
+      position: relative;
+      overflow: hidden;
+    }
+    .retro-hero::before {
+      content: '';
+      position: absolute;
+      inset: 0;
+      background: url("data:image/svg+xml,%3Csvg width='60' height='60' viewBox='0 0 60 60' xmlns='http://www.w3.org/2000/svg'%3E%3Cg fill='none' fill-rule='evenodd'%3E%3Cg fill='%23ffffff' fill-opacity='0.04'%3E%3Cpath d='M36 34v-4h-2v4h-4v2h4v4h2v-4h4v-2h-4zm0-30V0h-2v4h-4v2h4v4h2V6h4V4h-4zM6 34v-4H4v4H0v2h4v4h2v-4h4v-2H6zM6 4V0H4v4H0v2h4v4h2V6h4V4H6z'/%3E%3C/g%3E%3C/g%3E%3C/svg%3E");
+    }
+    .retro-hero .badge {
+      display: inline-block;
+      background: var(--gold);
+      color: #fff;
+      font-size: .72rem;
+      font-weight: 600;
+      letter-spacing: 2px;
+      text-transform: uppercase;
+      padding: 5px 14px;
+      border-radius: 20px;
+      margin-bottom: 14px;
+    }
+    .retro-hero h2 {
+      font-family: 'Playfair Display', serif;
+      font-size: clamp(1.4rem, 3vw, 2rem);
+      margin: 0 0 10px;
+    }
+    .retro-hero .hero-meta {
+      margin-top: 18px;
+      display: flex;
+      justify-content: center;
+      gap: 28px;
+      flex-wrap: wrap;
+    }
+    .retro-hero .hero-meta span {
+      font-size: .9rem;
+      opacity: .9;
+      display: flex;
+      align-items: center;
+      gap: 7px;
+    }
+    .retro-hero .hero-meta i { color: var(--gold); }
+
+    /* ── Section wrapper ───────────────────────────────────── */
+    .section {
+      max-width: 960px;
+      margin: 0 auto;
+      padding: 60px 30px;
+    }
+    .section-title {
+      font-family: 'Playfair Display', serif;
+      font-size: 1.55rem;
+      color: var(--navy);
+      border-left: 5px solid var(--gold);
+      padding-left: 14px;
+      margin: 0 0 30px;
+    }
+
+    /* ── About prose ───────────────────────────────────────── */
+    .prose p {
+      font-size: 1rem;
+      color: #444;
+      line-height: 1.85;
+      margin-bottom: 18px;
+      text-align: justify;
+    }
+    .prose p:last-child { margin-bottom: 0; }
+
+    /* ── Impact box ────────────────────────────────────────── */
+    .impact-box {
+      background: var(--light);
+      border-left: 5px solid var(--gold);
+      border-radius: 0 10px 10px 0;
+      padding: 26px 28px;
+    }
+    .impact-box p {
+      font-size: 1rem;
+      color: #444;
+      line-height: 1.85;
+      margin: 0 0 14px;
+      text-align: justify;
+    }
+    .impact-box p:last-child { margin-bottom: 0; }
+
+    /* ── Org committee ─────────────────────────────────────── */
+    .org-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+      gap: 20px;
+    }
+    .org-card {
+      background: var(--light);
+      border: 1px solid var(--mid);
+      border-radius: 10px;
+      padding: 22px 20px;
+      transition: box-shadow .2s;
+    }
+    .org-card:hover { box-shadow: 0 6px 18px rgba(0,51,102,.09); }
+    .org-card .role {
+      font-size: .72rem;
+      font-weight: 600;
+      text-transform: uppercase;
+      letter-spacing: 1.5px;
+      color: var(--gold);
+      margin-bottom: 6px;
+    }
+    .org-card .name {
+      font-size: 1.02rem;
+      font-weight: 600;
+      color: var(--navy);
+      margin-bottom: 4px;
+    }
+    .org-card .affil {
+      font-size: .84rem;
+      color: var(--muted);
+      line-height: 1.4;
+    }
+
+    /* ══════════════════════════════════════════════════════════
+       PARTNERS  — logo photo cards
+    ══════════════════════════════════════════════════════════ */
+    .partners-section {
+      background: var(--light);
+      border-top: 1px solid var(--mid);
+      border-bottom: 1px solid var(--mid);
+      padding: 50px 30px;
+    }
+    .partners-inner { max-width: 960px; margin: 0 auto; }
+    .partners-inner .section-title { margin-bottom: 34px; }
+
+    .partners-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(180px, 1fr));
+      gap: 20px;
+    }
+    .partner-card {
+      background: #fff;
+      border: 1px solid var(--mid);
+      border-radius: 12px;
+      padding: 20px 16px 14px;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      gap: 12px;
+      transition: transform .2s, box-shadow .2s;
+    }
+    .partner-card:hover { transform: translateY(-4px); box-shadow: 0 8px 22px rgba(0,51,102,.1); }
+    .partner-logo-wrap {
+      width: 110px;
+      height: 70px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+    .partner-logo-wrap img {
+      max-width: 110px;
+      max-height: 70px;
+      object-fit: contain;
+      display: block;
+    }
+    .partner-logo-wrap .logo-placeholder {
+      width: 100%;
+      height: 100%;
+      background: var(--mid);
+      border-radius: 8px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      color: var(--navy);
+      font-size: 1.6rem;
+    }
+    .partner-name {
+      font-size: .78rem;
+      font-weight: 600;
+      text-align: center;
+      color: var(--navy);
+      line-height: 1.35;
+    }
+
+    /* ── Official Sponsor ──────────────────────────────────── */
+    .sponsor-section {
+      max-width: 960px;
+      margin: 0 auto;
+      padding: 50px 30px 60px;
+    }
+    .sponsor-box {
+      display: flex;
+      align-items: center;
+      gap: 28px;
+      background: #fff;
+      border: 2px solid var(--mid);
+      border-left: 6px solid var(--gold);
+      border-radius: 12px;
+      padding: 28px 32px;
+      flex-wrap: wrap;
+    }
+    .sponsor-logo-wrap {
+      width: 120px; height: 70px;
+      display: flex; align-items: center; justify-content: center;
+    }
+    .sponsor-logo-wrap img { max-width: 120px; max-height: 70px; object-fit: contain; }
+    .sponsor-logo-wrap .logo-placeholder {
+      width: 100%; height: 100%;
+      background: var(--mid); border-radius: 8px;
+      display: flex; align-items: center; justify-content: center;
+      color: var(--navy); font-size: 1.8rem;
+    }
+    .sp-label {
+      font-size: .72rem; font-weight: 700;
+      letter-spacing: 2px; text-transform: uppercase;
+      color: var(--muted); margin-bottom: 6px;
+    }
+    .sp-name {
+      font-family: 'Playfair Display', serif;
+      font-size: 2rem; font-weight: 700;
+      color: #111; letter-spacing: -.5px; line-height: 1;
+    }
+    .sp-name span {
+      display: block; width: 50px; height: 4px;
+      background: #e02020; margin-top: 6px;
+    }
+    .sp-sub {
+      font-size: .75rem; letter-spacing: 1.5px;
+      text-transform: uppercase; color: var(--muted); margin-top: 4px;
+    }
+
+    /* ── Divider ───────────────────────────────────────────── */
+    .divider { height: 1px; background: var(--mid); max-width: 960px; margin: 0 auto; }
+
+    /* ── CTA strip ─────────────────────────────────────────── */
+    .cta-strip {
+      background: linear-gradient(135deg, var(--navy) 0%, #00509e 100%);
+      color: #fff;
+      text-align: center;
+      padding: 48px 30px;
+    }
+    .cta-strip h2 {
+      font-family: 'Playfair Display', serif;
+      font-size: 1.6rem; margin: 0 0 10px;
+    }
+    .cta-strip p { opacity: .82; margin: 0 0 24px; }
+    .cta-strip a {
+      display: inline-block;
+      background: var(--gold); color: #fff;
+      font-weight: 600; padding: 13px 30px;
+      border-radius: 6px; text-decoration: none;
+      font-size: .95rem; transition: background .2s;
+    }
+    .cta-strip a:hover { background: #a87420; }
+
+    /* ── Fade-in animations ────────────────────────────────── */
+    .fade-in { opacity: 0; transform: translateY(22px); transition: opacity .55s ease, transform .55s ease; }
+    .fade-in.visible { opacity: 1; transform: none; }
+  </style>
+</head>
+
+<body>
+
+<!-- Shared navbar -->
+<div id="navbar-container"></div>
+<script>
+  fetch("navbar.html")
+    .then(r => r.text())
+    .then(d => { document.getElementById("navbar-container").innerHTML = d; });
+</script>
+
+<!-- ══════════════════════════════════════════════════════════
+     HERO SLIDESHOW — first thing on the page
+════════════════════════════════════════════════════════════ -->
+<div class="slideshow-wrap" id="slideshow">
+
+  <div class="slide active"
+       style="background-image:url('images/aise2025/g1.jpg'); background-color:#1a3a5c;"></div>
+
+  <div class="slide"
+       style="background-image:url('images/aise2025/g7.jpg'); background-color:#1e4d2b;"></div>
+
+  <div class="slide"
+       style="background-image:url('images/aise2025/g3.jpg'); background-color:#3b1a5c;"></div>
+
+  <div class="slide"
+       style="background-image:url('images/aise2025/g2.jpg'); background-color:#5c2b1a;"></div>
+
+  <div class="slide"
+       style="background-image:url('images/aise2025/g5.jpg'); background-color:#1a4a5c;"></div>
+
+  <div class="slide"
+       style="background-image:url('images/aise2025/g6.jpg'); background-color:#2d3a1a;"></div>
+
+  <div class="slide"
+       style="background-image:url('images/aise2025/g4.jpg'); background-color:#2d3a1a;"></div>
+
+  <!-- Caption -->
+  <div class="slide-caption">
+    <h1>AISE&rsquo; 2025 &mdash; A Look Back</h1>
+    <p>1st IEEE CIS Summer School on Computational Intelligence for Software Engineering &nbsp;&middot;&nbsp; Carthage, Tunisia</p>
+  </div>
+
+  <!-- Arrows -->
+  <button class="slide-btn prev" onclick="slideshowMove(-1)" aria-label="Previous slide">
+    <i class="fas fa-chevron-left"></i>
+  </button>
+  <button class="slide-btn next" onclick="slideshowMove(1)" aria-label="Next slide">
+    <i class="fas fa-chevron-right"></i>
+  </button>
+
+  <!-- Dot nav (built by JS) -->
+  <div class="slide-dots" id="slideDots"></div>
+</div>
+
+<!-- ── Info banner ────────────────────────────────────────── -->
+<div class="retro-hero">
+  <div class="badge">Edition Retrospective</div>
+  <h2>June 16 &ndash; 18, 2025 &nbsp;|&nbsp; IHEC Carthage, Tunisia</h2>
+  <div class="hero-meta">
+    <span><i class="fas fa-calendar-alt"></i> 3 Days</span>
+    <span><i class="fas fa-users"></i> Undergraduate, M.Sc. &amp; Ph.D. Students</span>
+    <span><i class="fas fa-globe-africa"></i> Africa-focused</span>
+    <span><i class="fas fa-external-link-alt"></i>
+      <a href="https://ci4se.github.io/AISE2025/index.html" target="_blank"
+         style="color:#c8922a;text-decoration:none;font-weight:600;">
+        AISE&rsquo; 2025 Website &nearr;
+      </a>
+    </span>
+  </div>
+</div>
+
+<!-- ── About ─────────────────────────────────────────────── -->
+<div class="section fade-in">
+  <h2 class="section-title">About the First Edition</h2>
+  <div class="prose">
+    <p>
+      A dynamic AI landscape is emerging throughout Africa, poised to have a transformative impact.
+      In Africa alone, over 2,400 companies are reportedly involved in AI. According to Statista, the
+      generative AI market in Africa is expected to expand from $0.89 billion in 2024 to $8.75 billion
+      by 2028. More than 30 AI communities &mdash; from developing regions such as Sudan and Mali to
+      well-established centers like South Africa and Tunisia &mdash; are leading this movement.
+    </p>
+    <p>
+      Against this backdrop, the first edition of the IEEE CIS Summer School on Computational
+      Intelligence for Software Engineering brought together senior undergraduate, M.Sc., and Ph.D.
+      students from the region and beyond. The school provided hands-on knowledge and expert insights
+      into future developments at the intersection of AI and software engineering, covering the design
+      of AI-enabled systems, their evolution, and debugging.
+    </p>
+    <p>
+      Held at IHEC Carthage over three days, the event featured plenary talks from active researchers
+      at North American and international institutes, complemented by lectures from local academics
+      and industry practitioners. The school was co-sponsored by the LARODEC Laboratory and the
+      Institute of Data Engineering, Analytics, and Science at the University of Michigan&ndash;Flint.
+    </p>
+  </div>
+</div>
+
+<div class="divider"></div>
+
+<!-- ── Impact & Benefits ─────────────────────────────────── -->
+<div class="section fade-in">
+  <h2 class="section-title">Impact &amp; Benefits</h2>
+  <div class="impact-box">
+    <p>
+      The IEEE CIS AISE 2025 Summer School aimed to engage young researchers, as well as graduate and
+      postgraduate students worldwide with an interest in this domain. The program specifically sought
+      to increase participation from Africa, addressing the underrepresentation of African contributions
+      in leading conferences on Artificial Intelligence and Software Engineering. Consequently, it was
+      essential to establish connections between African researchers and prominent experts to facilitate
+      learning and collaborative opportunities.
+    </p>
+    <p>
+      Participants benefited from comprehensive educational sessions delivered by renowned specialists,
+      keeping them informed of the latest advancements and trends while equipping them with practical
+      research skills. The summer school fostered an interactive environment where attendees exchanged
+      insights and learned from one another, enhancing their understanding and preparing them to tackle
+      the emerging challenges associated with integrating Large Language Models (LLMs) into existing
+      software systems.
+    </p>
+  </div>
+</div>
+
+<div class="divider"></div>
+
+<!-- ── Organizing committee ──────────────────────────────── -->
+<div class="section fade-in">
+  <h2 class="section-title">Organizing Committee</h2>
+  <div class="org-grid">
+    <div class="org-card">
+      <div class="role">General Chair</div>
+      <div class="name">Montassar Ben Messaoud</div>
+      <div class="affil">LARODEC &ndash; Tunis Business School, Tunisia</div>
+    </div>
+    <div class="org-card">
+      <div class="role">General Co-Chair</div>
+      <div class="name">Mohamed Wiem Mkaouer</div>
+      <div class="affil">University of Michigan-Flint, USA</div>
+    </div>
+    <div class="org-card">
+      <div class="role">Organization Committee</div>
+      <div class="name">Mehdi Khouaja</div>
+      <div class="affil">BADEM &ndash; Tunis Business School, Tunisia</div>
+    </div>
+    <div class="org-card">
+      <div class="role">Organization Committee</div>
+      <div class="name">Rihab Bouslama</div>
+      <div class="affil">LARODEC &ndash; Tunis Business School, Tunisia</div>
+    </div>
+    <div class="org-card">
+      <div class="role">Organization Committee</div>
+      <div class="name">Chaima Chaieb</div>
+      <div class="affil">BESTMOD &ndash; Tunis Business School, Tunisia</div>
+    </div>
+  </div>
+</div>
+
+<!-- ── Partners ───────────────────────────────────────────── -->
+<div class="partners-section fade-in">
+  <div class="partners-inner">
+    <h2 class="section-title">Partners</h2>
+    <div class="partners-grid">
+
+      <div class="partner-card">
+        <div class="partner-logo-wrap">
+          <img src="images/IEEE.jpg" alt="IEEE CIS"
+               onerror="this.style.display='none';this.nextElementSibling.style.display='flex';" />
+          <div class="logo-placeholder" style="display:none"><i class="fas fa-microchip"></i></div>
+        </div>
+        <div class="partner-name">IEEE Computational<br>Intelligence Society</div>
+      </div>
+
+      <div class="partner-card">
+        <div class="partner-logo-wrap">
+          <img src="images/univ_tunis_logo.png" alt="Université de Tunis"
+               onerror="this.style.display='none';this.nextElementSibling.style.display='flex';" />
+          <div class="logo-placeholder" style="display:none"><i class="fas fa-university"></i></div>
+        </div>
+                <div class="partner-name">Université de Tunis</div>
+
+      </div>
+
+      <div class="partner-card">
+        <div class="partner-logo-wrap">
+          <img src="images/ihec_logo.jpg" alt="IHEC Carthage"
+               onerror="this.style.display='none';this.nextElementSibling.style.display='flex';" />
+          <div class="logo-placeholder" style="display:none"><i class="fas fa-building"></i></div>
+        </div>
+        <div class="partner-name">IHEC Carthage</div>
+      </div>
+
+      <div class="partner-card">
+        <div class="partner-logo-wrap">
+          <img src="images/flint.png" alt="University of Michigan-Flint"
+               onerror="this.style.display='none';this.nextElementSibling.style.display='flex';" />
+          <div class="logo-placeholder" style="display:none"><i class="fas fa-graduation-cap"></i></div>
+        </div>
+        <div class="partner-name">University of<br>Michigan &ndash; Flint</div>
+      </div>
+
+      <div class="partner-card">
+        <div class="partner-logo-wrap">
+          <img src="images/larodec_theme_logo.png" alt="LARODEC"
+               onerror="this.style.display='none';this.nextElementSibling.style.display='flex';" />
+          <div class="logo-placeholder" style="display:none"><i class="fas fa-flask"></i></div>
+        </div>
+        <div class="partner-name">LARODEC</div>
+      </div>
+
+      <div class="partner-card">
+        <div class="partner-logo-wrap">
+          <img src="images/SMA.png" alt="SMA Junior Entreprise"
+               onerror="this.style.display='none';this.nextElementSibling.style.display='flex';" />
+          <div class="logo-placeholder" style="display:none"><i class="fas fa-briefcase"></i></div>
+        </div>
+        <div class="partner-name">SMA Junior<br>Entreprise</div>
+      </div>
+
+      
+
+    </div>
+  </div>
+</div>
+
+<!-- ── Official Sponsor ───────────────────────────────────── -->
+<div class="sponsor-section fade-in">
+  <h2 class="section-title">Official Sponsor</h2>
+  <div class="sponsor-box">
+    <div class="sponsor-logo-wrap">
+      <img src="images/vermeg.jpg" alt="VERMEG"
+           onerror="this.style.display='none';this.nextElementSibling.style.display='flex';" />
+      <div class="logo-placeholder" style="display:none"><i class="fas fa-landmark"></i></div>
+    </div>
+    <div>
+      <div class="sp-label">Official Sponsor</div>
+      <div class="sp-name">VERMEG <span></span></div>
+      <div class="sp-sub">Software Solutions for Banking &amp; Insurance</div>
+    </div>
+  </div>
+</div>
+
+<!-- ── CTA ────────────────────────────────────────────────── -->
+<div class="cta-strip fade-in">
+  <h2>Ready for the Second Edition?</h2>
+  <p>AISE&rsquo; 2026 returns to Carthage, June 23 &ndash; 25, 2026.</p>
+  <a href="index.html">Learn about AISE&rsquo; 2026 &rarr;</a>
+</div>
+
+<footer>
+  &copy; 2026 AISE Initiative
+</footer>
+
+<!-- ══════════════════════════════════════════════════════════
+     SLIDESHOW SCRIPT
+════════════════════════════════════════════════════════════ -->
+<script>
+(function () {
+  const slides = document.querySelectorAll('.slide');
+  const dotsWrap = document.getElementById('slideDots');
+  let current = 0;
+  let autoTimer;
+
+  /* Build dot buttons */
+  slides.forEach((_, i) => {
+    const btn = document.createElement('button');
+    btn.className = 'dot' + (i === 0 ? ' active' : '');
+    btn.setAttribute('aria-label', 'Go to slide ' + (i + 1));
+    btn.addEventListener('click', () => goTo(i));
+    dotsWrap.appendChild(btn);
+  });
+
+  function goTo(n) {
+    slides[current].classList.remove('active');
+    dotsWrap.children[current].classList.remove('active');
+    current = (n + slides.length) % slides.length;
+    slides[current].classList.add('active');
+    dotsWrap.children[current].classList.add('active');
+    resetAuto();
+  }
+
+  function resetAuto() {
+    clearInterval(autoTimer);
+    autoTimer = setInterval(() => goTo(current + 1), 4500);
+  }
+
+  /* Expose for arrow buttons */
+  window.slideshowMove = dir => goTo(current + dir);
+
+  /* Pause on hover, resume on leave */
+  const wrap = document.getElementById('slideshow');
+  wrap.addEventListener('mouseenter', () => clearInterval(autoTimer));
+  wrap.addEventListener('mouseleave', resetAuto);
+
+  /* Touch / swipe support */
+  let touchStartX = 0;
+  wrap.addEventListener('touchstart', e => { touchStartX = e.touches[0].clientX; }, { passive: true });
+  wrap.addEventListener('touchend', e => {
+    const dx = e.changedTouches[0].clientX - touchStartX;
+    if (Math.abs(dx) > 40) goTo(current + (dx < 0 ? 1 : -1));
+  });
+
+  /* Keyboard arrows when focus is inside slideshow */
+  wrap.addEventListener('keydown', e => {
+    if (e.key === 'ArrowLeft')  goTo(current - 1);
+    if (e.key === 'ArrowRight') goTo(current + 1);
+  });
+
+  resetAuto();
+})();
+
+/* Fade-in on scroll */
+const io = new IntersectionObserver(entries => {
+  entries.forEach(e => {
+    if (e.isIntersecting) { e.target.classList.add('visible'); io.unobserve(e.target); }
+  });
+}, { threshold: 0.1 });
+document.querySelectorAll('.fade-in').forEach(el => io.observe(el));
+</script>
+
+</body>
+</html>
