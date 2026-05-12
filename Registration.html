@@ -2,60 +2,439 @@
 <html lang="en" dir="ltr">
 <head>
   <meta charset="utf-8" />
-    <link rel="icon" href="images/AISE.png" type="image/png" />
-
-  <title>AI4SE</title>
+  <title>Registration – AI4SE 2026</title>
+  <link rel="icon" href="images/AISE.png" type="image/png" />
   <link rel="stylesheet" href="styles.css" />
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <style>
-    .coming-soon-section {
-      display: flex;
-      flex-direction: column;
-      align-items: center;
-      justify-content: center;
-      min-height: 50vh;
-      text-align: center;
-      padding: 60px 20px;
+    /* ── Section wrapper ── */
+    .reg-section {
+      max-width: 980px;
+      margin: 0 auto;
+      padding: 100px 20px 64px;
+      font-size: 1.15rem;
     }
-    .coming-soon-section i {
-      font-size: 60px;
-      color: #f0a500;
-      margin-bottom: 20px;
-    }
-    .coming-soon-section h2 {
+    .reg-section h2 {
       font-size: 2rem;
-      margin-bottom: 10px;
+      color: #1a237e;
+      border-left: 4px solid #f0a500;
+      padding-left: 14px;
+      margin: 0 0 32px;
     }
-    .coming-soon-section p {
+
+    /* ── Fee tables ── */
+    .fee-block {
+      margin-bottom: 44px;
+    }
+    .fee-block h3 {
+      font-size: 1.2rem;
+      font-weight: 700;
+      color: #333;
+      margin: 0 0 16px;
+      display: flex;
+      align-items: center;
+      gap: 8px;
+    }
+    .fee-block h3 .badge {
+      background: #f0a500;
+      color: #fff;
+      font-size: .78rem;
+      font-weight: 700;
+      padding: 3px 12px;
+      border-radius: 20px;
+      letter-spacing: .4px;
+      text-transform: uppercase;
+    }
+    .fee-block h3 .badge.regular {
+      background: #555;
+    }
+
+    .fee-cards {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+      gap: 18px;
+    }
+    .fee-card {
+      border: 1px solid #e0e0e0;
+      border-radius: 10px;
+      padding: 30px 22px 26px;
+      text-align: center;
+      background: #fff;
+      box-shadow: 0 2px 8px rgba(0,0,0,.06);
+      transition: transform .18s, box-shadow .18s;
+    }
+    .fee-card:hover {
+      transform: translateY(-3px);
+      box-shadow: 0 6px 18px rgba(0,0,0,.11);
+    }
+    .fee-card .category-icon {
+      font-size: 2.2rem;
+      margin-bottom: 12px;
+      color: #f0a500;
+    }
+    .fee-card .category {
+      font-size: 1.15rem;
+      font-weight: 600;
+      color: #444;
+      margin-bottom: 14px;
+    }
+    .fee-card .amount {
+      font-size: 2.8rem;
+      font-weight: 800;
+      color: #1a237e;
+      line-height: 1;
+    }
+    .fee-card .amount span {
+      font-size: 1.2rem;
+      font-weight: 600;
+      color: #1a237e;
+    }
+    .fee-card.early { border-top: 4px solid #f0a500; }
+    .fee-card.early .amount { color: #1a237e; }
+    .fee-card.regular-card { border-top: 4px solid #888; }
+
+    /* ── Deadline notice ── */
+    .deadline-notice {
+      background: #fff8e1;
+      border: 1px solid #ffe082;
+      border-left: 4px solid #f0a500;
+      border-radius: 6px;
+      padding: 14px 18px;
+      font-size: 1.05rem;
+      color: #5d4037;
+      margin-bottom: 24px;
+      display: flex;
+      align-items: center;
+      gap: 10px;
+    }
+    .deadline-notice i { color: #f0a500; font-size: 1.2rem; }
+
+    /* ── Terms ── */
+    .terms {
+      background: #fffbf0;
+      border: 1px solid #ffe082;
+      border-left: 4px solid #f0a500;
+      border-radius: 8px;
+      padding: 28px 32px;
+      margin-bottom: 44px;
+    }
+    .terms h3 {
+      font-size: 1.4rem;
+      color: #333;
+      margin: 0 0 16px;
+      display: flex;
+      align-items: center;
+      gap: 8px;
+    }
+    .terms .included-badges {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 10px;
+      margin: 14px 0 20px;
+    }
+    .terms .inc-badge {
+      background: #f0a500;
+      color: #fff;
+      padding: 7px 18px;
+      border-radius: 20px;
+      font-size: 1.05rem;
+      font-weight: 600;
+      display: flex;
+      align-items: center;
+      gap: 6px;
+    }
+    .terms p {
+      font-size: 1.15rem;
+      color: #444;
+      margin: 0 0 10px;
+      line-height: 1.7;
+    }
+    .terms .deadline-line {
+      background: #fff3cd;
+      border: 1px solid #ffc107;
+      border-radius: 6px;
+      padding: 14px 18px;
+      font-size: 1.08rem;
+      color: #5d4037;
+      margin-top: 14px;
+      display: flex;
+      align-items: flex-start;
+      gap: 10px;
+      line-height: 1.6;
+    }
+    .terms .deadline-line i { color: #f0a500; margin-top: 2px; flex-shrink: 0; }
+
+    /* ── Bank transfer ── */
+    .bank-block {
+      background: #fff;
+      border: 1px solid #e0e0e0;
+      border-radius: 10px;
+      padding: 28px 28px 24px;
+      box-shadow: 0 2px 8px rgba(0,0,0,.05);
+      margin-bottom: 44px;
+    }
+    .bank-block h3 {
+      font-size: 1.2rem;
+      color: #1a237e;
+      margin: 0 0 18px;
+      display: flex;
+      align-items: center;
+      gap: 8px;
+    }
+    .bank-table {
+      width: 100%;
+      border-collapse: collapse;
+      font-size: 1.12rem;
+    }
+    .bank-table tr {
+      border-bottom: 1px solid #f0f0f0;
+    }
+    .bank-table tr:last-child { border-bottom: none; }
+    .bank-table td {
+      padding: 11px 8px;
+      vertical-align: top;
+    }
+    .bank-table td:first-child {
+      font-weight: 600;
+      color: #555;
+      width: 240px;
+      white-space: nowrap;
+    }
+    .bank-table td:last-child {
+      color: #222;
+    }
+    .bank-table .rib-value {
+      font-family: 'Courier New', monospace;
+      font-size: 1.05rem;
+      color: #1a237e;
+      font-weight: 700;
+      letter-spacing: .5px;
+    }
+
+    /* ── Contact box ── */
+    .contact-box {
+      background: linear-gradient(135deg, #1a237e, #3949ab);
+      color: #fff;
+      border-radius: 10px;
+      padding: 32px 28px;
+      text-align: center;
+    }
+    .contact-box p {
+      margin: 0 0 14px;
       font-size: 1.1rem;
-      color: #666;
+      opacity: .9;
+    }
+    .contact-box a {
+      color: #ffe082;
+      font-weight: 600;
+      font-size: 1.1rem;
+      text-decoration: none;
+    }
+    .contact-box a:hover { text-decoration: underline; }
+
+    /* ── Register button ── */
+    .register-cta {
+      text-align: center;
+      margin: 0 0 48px;
+    }
+    .register-cta h2 {
+      font-size: 2rem;
+      color: #1a237e;
+      border-left: 4px solid #f0a500;
+      padding-left: 14px;
+      margin: 0 0 18px;
+      text-align: left;
+    }
+    .register-cta p {
+      font-size: 1.15rem;
+      color: #555;
+      margin-bottom: 24px;
+      text-align: left;
+    }
+    .btn-register {
+      display: inline-flex;
+      align-items: center;
+      gap: 10px;
+      background: #f0a500;
+      color: #fff;
+      font-size: 1.2rem;
+      font-weight: 700;
+      padding: 18px 44px;
+      border-radius: 8px;
+      text-decoration: none;
+      letter-spacing: .3px;
+      box-shadow: 0 4px 14px rgba(240,165,0,.35);
+      transition: background .18s, transform .15s, box-shadow .18s;
+    }
+    .btn-register:hover {
+      background: #d4900a;
+      transform: translateY(-2px);
+      box-shadow: 0 6px 20px rgba(240,165,0,.45);
+    }
+
+    /* ── Divider ── */
+    .reg-divider {
+      border: none;
+      border-top: 1px solid #e8e8e8;
+      margin: 40px 0;
+    }
+
+    @media (max-width: 600px) {
+      .fee-cards { grid-template-columns: 1fr; }
+      .bank-table td:first-child { width: auto; white-space: normal; }
     }
   </style>
 </head>
 <body>
 
+  <!-- Navbar (loaded from shared file) -->
   <div id="navbar-container"></div>
   <script>
     fetch("navbar.html")
-      .then((response) => response.text())
-      .then((data) => {
-        document.getElementById("navbar-container").innerHTML = data;
-      });
+      .then(r => r.text())
+      .then(d => { document.getElementById("navbar-container").innerHTML = d; });
   </script>
 
-  <div class="speakers-header">
-    <h1>Registration</h1>
-  </div>
+  <div class="reg-section">
 
-  <div class="coming-soon-section">
-    <i class="fas fa-hourglass-half"></i>
-    <h2>Coming Soon</h2>
-    <p>Registration details will be announced shortly. Stay tuned!</p>
+    <!-- ── Registration Fees ── -->
+    <h2><i class="fas fa-tag" style="margin-right:8px;font-size:1rem;"></i>Registration Fees</h2>
+
+    <!-- Early Bird -->
+    <div class="fee-block">
+      <h3>
+        <i class="fas fa-bolt" style="color:#f0a500;"></i>
+        Early Bird Fee
+        <span class="badge">Before June 01, 2026</span>
+      </h3>
+      <div class="deadline-notice">
+        <i class="fas fa-clock"></i>
+        Take advantage of discounted rates by registering before <strong>June 01, 2026</strong>.
+      </div>
+      <div class="fee-cards">
+        <div class="fee-card early">
+          <div class="category-icon"><i class="fas fa-user-graduate"></i></div>
+          <div class="category">Students &amp; Postdocs</div>
+          <div class="amount">300 <span>DT</span></div>
+        </div>
+        <div class="fee-card early">
+          <div class="category-icon"><i class="fas fa-chalkboard-teacher"></i></div>
+          <div class="category">Academics</div>
+          <div class="amount">400 <span>DT</span></div>
+        </div>
+        <div class="fee-card early">
+          <div class="category-icon"><i class="fas fa-briefcase"></i></div>
+          <div class="category">Industry Professionals</div>
+          <div class="amount">500 <span>DT</span></div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Regular -->
+    <div class="fee-block">
+      <h3>
+        <i class="fas fa-calendar-alt" style="color:#888;"></i>
+        Regular Fee
+        <span class="badge regular">After June 01, 2026</span>
+      </h3>
+      <div class="fee-cards">
+        <div class="fee-card regular-card">
+          <div class="category-icon"><i class="fas fa-user-graduate"></i></div>
+          <div class="category">Students &amp; Postdocs</div>
+          <div class="amount">400 <span>DT</span></div>
+        </div>
+        <div class="fee-card regular-card">
+          <div class="category-icon"><i class="fas fa-chalkboard-teacher"></i></div>
+          <div class="category">Academics</div>
+          <div class="amount">500 <span>DT</span></div>
+        </div>
+        <div class="fee-card regular-card">
+          <div class="category-icon"><i class="fas fa-briefcase"></i></div>
+          <div class="category">Industry Professionals</div>
+          <div class="amount">600 <span>DT</span></div>
+        </div>
+      </div>
+    </div>
+
+    <hr class="reg-divider">
+
+    <!-- ── What's Included ── -->
+    <div class="terms">
+      <h3><i class="fas fa-check-circle" style="color:#f0a500;"></i>What's Included</h3>
+      <p>The registration fee covers all conference materials, access to all sessions, premium coffee breaks, and lunch.</p>
+      <div class="included-badges">
+        <span class="inc-badge"><i class="fas fa-certificate"></i> Certificate</span>
+        <span class="inc-badge"><i class="fas fa-box-open"></i> Conference Kit</span>
+        <span class="inc-badge"><i class="fas fa-coffee"></i> Coffee Breaks</span>
+        <span class="inc-badge"><i class="fas fa-utensils"></i> Lunch</span>
+      </div>
+      <div class="deadline-line">
+        <i class="fas fa-exclamation-circle"></i>
+        <span>
+          All payments must be completed before <strong>June 15, 2026</strong>.
+          Admitted participants will be notified by <strong>June 18, 2026</strong>.
+        </span>
+      </div>
+    </div>
+
+    <!-- ── Register Now CTA ── -->
+    <div class="register-cta">
+      <h2><i class="fas fa-edit" style="margin-right:8px;font-size:1.1rem;"></i>How to Register</h2>
+      <p>
+        Fill in the registration form below, then complete your payment via bank transfer using the details provided further down this page.
+        Once payment is confirmed, you will receive an official confirmation email.
+      </p>
+      <!-- 🔗 Replace the href below with your actual Google Form link -->
+      <a class="btn-register" href="YOUR_GOOGLE_FORM_LINK_HERE" target="_blank" rel="noopener">
+        <i class="fas fa-external-link-alt"></i> Open Registration Form
+      </a>
+    </div>
+
+    <hr class="reg-divider">
+    <h2><i class="fas fa-university" style="margin-right:8px;font-size:1.1rem;"></i>Payment by Bank Transfer</h2>
+    <div class="bank-block">
+      <h3><i class="fas fa-landmark"></i>Bank Details</h3>
+      <table class="bank-table">
+        <tr>
+          <td>Bank Name</td>
+          <td>Union Internationale des Banques (UIB)</td>
+        </tr>
+        <tr>
+          <td>Branch</td>
+          <td>Agence Place de l'Assemblée Nationale</td>
+        </tr>
+        <tr>
+          <td>Account Holder</td>
+          <td>Association Smart Marketing</td>
+        </tr>
+        <tr>
+          <td>RIB</td>
+          <td class="rib-value">12 008 0000093007287 24</td>
+        </tr>
+        <tr>
+          <td>IBAN</td>
+          <td class="rib-value">TN59 12 008 0000093007287 24</td>
+        </tr>
+      </table>
+    </div>
+
+    <div style="background:#e8f5e9;border:1px solid #a5d6a7;border-left:4px solid #4caf50;border-radius:6px;padding:14px 18px;font-size:1.05rem;color:#2e7d32;margin-bottom:40px;display:flex;align-items:center;gap:10px;">
+      <i class="fas fa-check-circle" style="font-size:1.2rem;"></i>
+      After completing the bank transfer, please send your proof of payment to the conference email address below.
+    </div>
+
+    <!-- ── Contact ── -->
+    <div class="contact-box">
+      <p><i class="fas fa-envelope" style="margin-right:6px;"></i>For any registration enquiries, please contact us at:</p>
+      <a href="mailto:aise.initiative@gmail.com">aise.initiative@gmail.com</a>
+    </div>
+
   </div>
 
   <footer>
-  &copy; 2026 AISE Initiative
-</footer>
+    &copy; 2026 AISE Initiative
+  </footer>
+
 </body>
 </html>
